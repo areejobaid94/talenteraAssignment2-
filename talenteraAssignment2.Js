@@ -9,7 +9,7 @@ function all (values, callback){
 }
 
 //Write a function called contains that searches for a value in a nested object. It returns true if the object contains that value.
-//In this chalenge I didn't know if the object can have more than key before the last object like this:{1:{2:{4:11,3:20},3:{7:5}},5:{6:30,4:99}},
+//In this Challenge I didn't know if the object can have more than key before the last object like this:{1:{2:{4:11,3:20},3:{7:5}},5:{6:30,4:99}},
 //so I solved it in two way: the first one when we just have multiple keys in the last object and the 2nd when we have multiple keys in any object not only the last one 
 function contains(val,obj){
     let nestedObj = Object.keys(obj);
@@ -41,3 +41,8 @@ function containsRec (val,obj){
     nextObj(nestedObj,obj);
     return flag;
 }
+let allChallengeform = document.getElementById('allChallenge');
+allChallengeform.addEventListener("submit", function(e){
+    e.preventDefault();
+    console.log(e.target)
+});
