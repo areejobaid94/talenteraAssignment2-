@@ -41,8 +41,3 @@ function containsRec (val,obj){
     nextObj(nestedObj,obj);
     return flag;
 }
-let allChallengeform = document.getElementById('allChallenge');
-allChallengeform.addEventListener("submit", function(e){
-    e.preventDefault();
-    console.log(e.target)
-});
