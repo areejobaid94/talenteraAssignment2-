@@ -22,20 +22,6 @@ function contains (val,obj){
 }
 
 //2nd solution => Tree Data Structure
-function contains(val,obj){
-    let nestedObj = Object.keys(obj);
-    while(nestedObj.length === 1 && obj[nestedObj[0]]){
-        if(nestedObj[0] == val)return true;
-        obj = obj[nestedObj[0]]
-        nestedObj = Object.keys(obj)
-    }
-    for(let key in obj){
-        if(obj[key] == val) return true
-    }
-    return false;
-}
-
-//3rd solution => if we have multiple keys just in the last object
 function containsTree (val,obj){
     let nestedObj = Object.keys(obj);
     let flag = false
@@ -54,3 +40,16 @@ function containsTree (val,obj){
     return flag;
 }
 
+//3rd solution => if we have multiple keys just in the last object
+function contains(val,obj){
+    let nestedObj = Object.keys(obj);
+    while(nestedObj.length === 1 && obj[nestedObj[0]]){
+        if(nestedObj[0] == val)return true;
+        obj = obj[nestedObj[0]]
+        nestedObj = Object.keys(obj)
+    }
+    for(let key in obj){
+        if(obj[key] == val) return true
+    }
+    return false;
+}
