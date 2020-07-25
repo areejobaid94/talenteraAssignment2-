@@ -9,8 +9,19 @@ function all (values, callback){
 }
 
 //Write a function called contains that searches for a value in a nested object. It returns true if the object contains that value.
+
 //In this Challenge I didn't know if the object can have more than key before the last object like this:{1:{2:{4:11,3:20},3:{7:5}},5:{6:30,4:99}},
-//so I solved it in two way: the first one when we just have multiple keys in the last object and the 2nd when we have multiple keys in any object not only the last one 
+//so I solved it in three ways: the first one is the best solution I used JSON.stringify() and split to convert the obj to array and we can use this 
+//solution if we have multiple keys in any object,
+//in the 2nd solution I used tree data Structure to solve it  and also we can use this solution if we have multiple keys in any object,
+//and for the 3rd one we can just use it if we have multiple keys just in the last object.
+
+//First solution => The Best solution for this challenge =>
+function contains (val,obj){
+    return JSON.stringify(obj).split(/(?:{|:|}|,|")+/).includes(val.toString());
+}
+
+//2nd solution => Tree Data Structure
 function contains(val,obj){
     let nestedObj = Object.keys(obj);
     while(nestedObj.length === 1 && obj[nestedObj[0]]){
@@ -24,7 +35,8 @@ function contains(val,obj){
     return false;
 }
 
-function containsRec (val,obj){
+//3rd solution => if we have multiple keys just in the last object
+function containsTree (val,obj){
     let nestedObj = Object.keys(obj);
     let flag = false
     let nextObj = function(arrOfKeys,obj){
@@ -41,3 +53,4 @@ function containsRec (val,obj){
     nextObj(nestedObj,obj);
     return flag;
 }
+
